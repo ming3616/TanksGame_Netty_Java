@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aitank.server.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="com.aitank.server.pojo.User">
+        <id column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="state" property="state" jdbcType="BOOLEAN" />
+    </resultMap>
+
+    <select id="selectAllUser" resultMap="BaseResultMap">
+        SELECT * FROM player
+    </select>
+
+    <select id="selectUserById" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT * FROM player WHERE uuid = #{uuid}
+    </select>
+
+    <select id="selectUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT * FROM player WHERE username = #{username}
+    </select>
+
+    <delete id="deleteUser" parameterType="java.lang.String">
+        DELETE FROM player WHERE uuid = #{uuid}
+    </delete>
+    <insert id="insertUser" parameterType="com.aitank.server.pojo.User">
+         insert into player (uuid,username,password,state)
+         values (uuid(), #{username},#{password},#{state})
+    </insert>
+</mapper>
