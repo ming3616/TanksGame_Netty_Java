@@ -14,6 +14,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
+import org.apache.ibatis.executor.statement.BaseStatementHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Method;
@@ -26,6 +27,7 @@ public class TcpHandler extends ChannelInboundHandlerAdapter {
 
     public static Map<String, ChannelHandlerContextInfo> players = new HashMap<String, ChannelHandlerContextInfo>();
     public static final ChannelGroup group = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+    public Map<EventType2, BaseHandler> handlerMap = new HashMap<>();
 
     /***
      * @Description: 获取消息从客户端
