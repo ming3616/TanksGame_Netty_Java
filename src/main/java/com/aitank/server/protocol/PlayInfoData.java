@@ -12,6 +12,8 @@ public class PlayInfoData {
     public float rotation4=1;
 
     public boolean shoot=false;
+    public float force = 15f;
     public int serverHealth=1 ;
     public String playName="";
+    public int playNumber;
 }

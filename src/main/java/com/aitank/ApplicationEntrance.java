@@ -51,10 +51,10 @@ public class ApplicationEntrance {
     public void runServer(){
         ConfigurableApplicationContext context = new FileSystemXmlApplicationContext("classpath:/spring/applicationContext.xml");
 
-        RedisManager redisManager = SpringContext.getRedisManager();
-        redisManager.set("AiTank","object");
-        TestObject testObject = new TestObject(5,10,"Netflax");
-        redisManager.set("testObject",testObject);
+//        RedisManager redisManager = SpringContext.getRedisManager();
+//        redisManager.set("AiTank","object");
+//        TestObject testObject = new TestObject(5,10,"Netflax");
+//        redisManager.set("testObject",testObject);
 
         new TcpServer().startTcpServer();
     }

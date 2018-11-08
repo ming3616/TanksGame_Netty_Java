@@ -76,9 +76,11 @@ public class ObjectMultiAction {
             playInfoData.rotation3 = player.getRotation()[2];
             playInfoData.rotation4 = player.getRotation()[3];
             playInfoData.shoot = player.isShoot();
+            playInfoData.force = player.getForce();
             playInfoData.serverHealth = player.serverHealth;
             playInfoData.userId = player.getChx().channel().id().toString();
             playInfoData.playName = player.getName();
+            playInfoData.playNumber = playInfoDataList.playInfoDataList.size();
 
             playInfoDataList.playInfoDataList.add(playInfoData);
         }
